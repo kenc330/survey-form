@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="en-US">
+
+<head>
+    <title>Survey Form</title>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="Description" content="Covid Conundrum Survey Form">
+
+    <!--
+        Survey Form: written by Kenneth Clendenin 
+        Submitted on: September 11, 2020
+    -->
+
+    <style>
+        body {
+            background-image: linear-gradient(#97aac6 40%, white);
+            margin: 2rem;
+            background-repeat: no-repeat;
+        }
+
+        body::before {
+            content: "";
+            background: url("https://images2.imgbox.com/71/ee/Ct9ZJOem_o.jpg");
+            opacity: 0.2;
+            top: 0;
+            left: 0;
+            bottom: 0;
+            right: 0;
+            position: fixed;
+            z-index: -1;
+            background-size: cover;
+            animation: myMove 100s infinite;
+        }
+
+        @keyframes myMove {
+            0% {
+                transform: scale(1);
+            }
+
+            25% {
+                transform: scale(2);
+            }
+
+            50% {
+                transform: scale(3);
+            }
+
+            75% {
+                transform: scale(2);
+            }
+
+            100% {
+                transform: scale(1);
+            }
+        }
+
+
+        header {
+            max-width: 600px;
+            margin: auto;
+        }
+
+        header h1 {
+            font-size: 3rem;
+            text-align: center;
+            margin: 0px 0px 5% 0px;
+            text-shadow: 0 1px 0 rgba(255, 255, 255, 0.5);
+        }
+
+        header p {
+            margin: 0 0 5% 0;
+            text-align: center;
+            font-size: 1.3rem;
+        }
+
+        main {
+            margin: auto;
+            max-width: 700px;
+            box-sizing: border-box;
+            background-color: hsl(217, 20%, 75%);
+            padding: 2rem 5% 1.5rem 5%;
+            box-shadow: 0px 0px 3px black;
+        }
+
+        .input,
+        select {
+            width: 100%;
+            height: 2.5em;
+            box-sizing: border-box;
+            margin: .25rem 0px 1rem 0px;
+            padding-left: 2%;
+            font-size: medium;
+            color: hsl(0, 0%, 35%);
+            border: none;
+        }
+
+
+        label {
+            font-size: larger;
+        }
+
+        ::placeholder,
+        select {
+            font-size: medium;
+            color: hsl(0, 0%, 35%);
+            background-color: rgb(255, 255, 255);
+
+        }
+
+        #radio,
+        #checkbox {
+            margin: .25rem 0px 1rem 0px;
+            background-color: rgb(255, 255, 255);
+            /* border-radius: 3px; */
+            padding: .5rem;
+        }
+
+        #radio_div1,
+        #radio_div2,
+        #checkbox_div1,
+        #checkbox_div2,
+        #checkbox_div3,
+        #checkbox_div4,
+        #checkbox_div5 {
+            margin-bottom: .5rem;
+        }
+
+        textarea {
+            width: 100%;
+            box-sizing: border-box;
+            resize: vertical;
+            margin-top: .25rem;
+            border-radius: 3px;
+        }
+
+        button {
+            font-size: medium;
+            height: 2rem;
+            width: 6rem;
+            margin-top: 1rem;
+            padding: .25rem .75rem;
+            box-shadow: 0px 0px 2px black;
+            border: none;
+            background-color: lightgray;
+        }
+
+        #submit {
+            margin-right: .5rem;
+        }
+
+        #submit:hover,
+        #submit:focus,
+        #reset:hover,
+        #reset:focus {
+            border: none;
+            background-color: black;
+            color: whitesmoke;
+            transition-duration: 0.5s;
+            cursor: pointer;
+        }
+
+
+
+        @media screen and (max-width: 600px) {
+
+            body {
+                margin: 7% 3% 5% 3%;
+            }
+
+            header h1 {
+                font-size: 2.5rem;
+            }
+
+            header p {
+                font-size: large;
+            }
+
+            button {
+                width: 5rem;
+                height: 2rem;
+            }
+
+            ::placeholder,
+            select {
+                font-size: 1rem;
+            }
+
+            label,
+            .radio {
+                font-size: large;
+            }
+
+            #radio_div1,
+            #radio_div2,
+            #radio_div3,
+            #checkbox_div1,
+            #checkbox_div2,
+            #checkbox_div3,
+            #checkbox_div4,
+            #checkbox_div5,
+            #checkbox_div6 {
+                display: grid;
+                width: 90%;
+                grid-template-columns: 5% 95%;
+                grid-column-gap: .75rem;
+                font-size: 1rem;
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header>
+        <h1 id="title">The Covid Conundrum</h1>
+        <p id="description">How are you coping during the pandemic?</p>
+    </header>
+    <main>
+        <form id="survey-form" action="#">
+
+            <label id="name-label" for="name">Name:</label>
+            <input id="name" type="text" name="name" class="input" placeholder="Please enter your name" required>
+
+            <label id="email-label" for="email">Email:</label>
+            <input id="email" type="email" name="email" class="input" placeholder="Please enter your email address"
+                required>
+
+            <label id="number-label" for="number">Age:</label>
+            <input id="number" type="number" name="number" class="input" min="18" max="120" required
+                placeholder="Please enter your age (18 to 120)">
+
+            <label for="dropdown">How concerned are you about the virus?</label>
+            <select name="dropdown" id="dropdown">
+                <option disabled selected>Select an option</option>
+                <option value="1">It's a hoax</option>
+                <option value="2">Not concerned at all</option>
+                <option value="3">Slightly concerned</option>
+                <option value="4">Considerably concerned</option>
+                <option value="5">Extremely concerned</option>
+                <option value="6">I'm not leaving home until there's a vaccine</option>
+            </select>
+
+            <label>What do you think about getting a vaccine once they become available?</label>
+            <div id="radio">
+                <div id="radio_div1">
+                    <input type="radio" id="radio1" name="radio" value="Yes" checked>
+                    <label for="radio1" class="radio">Yes, I will get one as soon as possible.</label>
+                </div>
+                <div id="radio_div2">
+                    <input type="radio" id="radio2" name="radio" value="We'll see">
+                    <label for="radio2" class="radio">I will wait a few months before I decide.</label>
+                </div>
+                <div id="radio_div3">
+                    <input type="radio" id="radio3" name="radio" value="No">
+                    <label for="radio3" class="radio">No way! I don't believe in vaccines.</label>
+                </div>
+            </div>
+
+            <label>What are you looking forward to the most when things get back to normal? (You may select more than
+                one answer)</label>
+            <div id="checkbox">
+                <div id="checkbox_div1">
+                    <input type="checkbox" id="checkbox1" value="N/A" class="checkbox">
+                    <label for="checkbox1">N/A - I still do everything that I did before this started.</label>
+                </div>
+                <div id="checkbox_div2">
+                    <input type="checkbox" id="checkbox2" value="Sports" class="checkbox">
+                    <label for="checkbox2">Attending live sporting events.</label>
+                </div>
+                <div id="checkbox_div3">
+                    <input type="checkbox" id="checkbox3" value="Restaurants" class="checkbox">
+                    <label for="checkbox3">Going out to eat at restaurants.</label>
+                </div>
+                <div id="checkbox_div4">
+                    <input type="checkbox" id="checkbox4" value="Restaurants" class="checkbox">
+                    <label for="checkbox4">Shopping at the mall.</label>
+                </div>
+                <div id="checkbox_div5">
+                    <input type="checkbox" id="checkbox5" value="Restaurants" class="checkbox">
+                    <label for="checkbox5">Being able to visit with friends and family.</label>
+                </div>
+                <div id="checkbox_div6">
+                    <input type="checkbox" id="checkbox6" value="Restaurants" class="checkbox">
+                    <label for="checkbox6">Going back to in-person learning in school.</label>
+                </div>
+            </div>
+
+            <label id="message-label" for="message">Please leave any additional comments or thoughts below:</label>
+            <textarea name="message" id="message" cols="30" rows="10"></textarea>
+
+            <button type="submit" id="submit">Submit</button>
+            <button type="reset" id="reset">Reset</button>
+
+        </form>
+    </main>
+
+</body>
+<!-- <script src="https://cdn.freecodecamp.org/testable-projects-fcc/v1/bundle.js"></script> -->
+
+</html>
